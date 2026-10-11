@@ -1,0 +1,8 @@
+node_modules/
+.data/
+product-images/
+test-output/
+*.log
+.env
+.env.*
+!.env.example

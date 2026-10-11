@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>صور المنتجات — مساعد المنيو</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<a class="skip" href="#results">انتقل للنتائج</a>
+<header class="topbar"><div class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="4"/><circle cx="8" cy="9" r="1.5"/><path d="m4 17 5-5 4 4 3-3 5 5"/></svg></span><div><strong>صور المنتجات</strong><small>مساعد تجهيز المنيو</small></div></div><span class="local-tag"><span aria-hidden="true"></span> شغّال على جهازك</span></header>
+<main class="layout">
+<aside class="setup" aria-labelledby="setup-heading">
+  <div class="step-label">01 / قائمة المنتجات</div><h1 id="setup-heading">من أسماء… لصور.</h1><p class="intro">بقالة، إلكترونيات، ملابس أو أي منتج. ضيف الأسماء، وراجع الصور قبل إضافتها لموقعك.</p>
+  <form id="setup-form">
+    <label class="file-zone" for="file"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><strong id="file-label">اختار ملف TXT</strong><span>كل منتج في سطر مستقل</span><input id="file" type="file" accept=".txt,text/plain"></label>
+    <div class="input-heading"><label for="names">أو اكتب الأسماء هنا</label><button class="text-button" type="button" id="examples">جرّب أمثلة</button></div>
+    <textarea id="names" rows="7" placeholder="مكرونة الملكة&#10;جبنة دومتي بالزيتون&#10;رز — ضيف الماركة والنوع" aria-describedby="names-hint"></textarea>
+    <p class="hint" id="names-hint">ضيف الماركة والموديل أو النكهة والحجم. ممكن تكتب: اسم المنتج | وصف البحث</p>
+    <div class="field"><label for="encoding">ترميز ملف الأسماء</label><select id="encoding"><option value="utf-8">UTF-8 (الافتراضي)</option><option value="windows-1256">Windows-1256 (ملفات العربي القديمة)</option><option value="utf-16le">UTF-16</option></select></div>
+    <details class="options"><summary>إعدادات البحث والحفظ</summary><div class="options-inner">
+      <div class="field"><label for="suffix">كلمات تضاف لكل بحث <span class="optional">اختياري</span></label><input id="suffix" placeholder="مثال: عبوة مصر" maxlength="120"><p class="hint">ما تضيفش ماركة واحدة لو قائمتك فيها ماركات مختلفة.</p></div>
+      <div class="field"><label for="output">مجلد الحفظ</label><input id="output" dir="ltr" spellcheck="false"><p class="hint">كل دفعة بتتحفظ في مجلد مستقل.</p></div>
+      <div class="field"><label for="format">صيغة الصور</label><select id="format"><option value="jpg">JPG — مناسبة لمعظم المواقع</option><option value="webp">WebP — حجم أصغر</option></select></div>
+      <div class="field"><label for="api-key">مفتاح Serper <span class="optional">اختياري</span></label><input id="api-key" type="password" autocomplete="off" placeholder="البحث الافتراضي بدون مفتاح"><p class="hint">لو البحث الافتراضي توقف، تقدر تستخدم حسابك في <a href="https://serper.dev" target="_blank" rel="noopener noreferrer">Serper</a>. المفتاح لا يُحفظ، والخدمة لها حصص وتكلفة حسب حسابك.</p></div>
+    </div></details>
+    <p id="form-error" class="error" role="alert" hidden></p>
+    <button class="primary full" id="start" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg> ابحث ونزّل الصور</button>
+  </form>
+  <div class="quiet-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 7v5c0 5 9 9 9 9s9-4 9-9V7zM8 12l3 3 5-6"/></svg><p>الصور اللي وصفها مش مطابق بالكامل بتفضل للمراجعة، بدون تنزيل تلقائي.</p></div>
+</aside>
+<section class="workspace" id="results" tabindex="-1" aria-label="نتائج البحث">
+  <div class="workspace-heading"><div><div class="step-label">02 / البحث والمراجعة</div><h2>جهّز صور المنيو</h2></div><div class="field history"><label for="history">الدفعات المحفوظة</label><select id="history"><option value="">دفعة جديدة</option></select></div></div>
+  <div class="stats"><div><span>إجمالي المنتجات</span><strong id="count-total">0</strong></div><div><span>صور نزلت</span><strong id="count-downloaded">0</strong></div><div><span>محتاج مراجعة</span><strong id="count-review">0</strong></div><div class="ready-stat"><span>جاهز للرفع</span><strong id="count-approved">0</strong></div></div>
+  <div id="empty" class="empty"><div class="empty-art" aria-hidden="true"><svg viewBox="0 0 240 180"><rect x="35" y="39" width="117" height="106" rx="13" fill="#fff" stroke="#cbd5d1" stroke-width="2"/><rect x="49" y="53" width="89" height="70" rx="7" fill="#edf2ed"/><circle cx="73" cy="73" r="9" fill="#c3d4c3"/><path d="m50 118 31-30 23 23 13-16 21 23" fill="#93b7a8"/><rect x="111" y="73" width="94" height="80" rx="12" fill="#fff" stroke="#cbd5d1" stroke-width="2"/><path d="M140 90h36l7 14v33h-50v-33z" fill="#e5eddf"/><path d="M133 105h50" stroke="#9eaf91" stroke-width="2"/><rect x="145" y="112" width="26" height="14" rx="3" fill="#b4c5a5"/><circle cx="188" cy="53" r="20" fill="#1e5c47"/><path d="m179 53 6 6 12-13" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>قائمتك هي نقطة البداية</h3><p>ارفع الملف أو اكتب الأسماء. هنجمع صور المنتجات، ونخلّيك تختار المناسب من مكان واحد.</p><div class="workflow"><span>أسماء المنتجات</span><b aria-hidden="true">←</b><span>صور مقترحة</span><b aria-hidden="true">←</b><span>جاهزة لموقعك</span></div></div>
+  <div id="job-panel" hidden>
+    <div class="progress-panel"><div class="progress-heading"><p id="job-status" role="status" aria-live="polite"></p><div class="toolbar"><button id="pause" class="secondary" type="button">إيقاف مؤقت</button><button id="resume" class="secondary" type="button">استكمال البحث</button><button id="open-folder" class="secondary" type="button">افتح مجلد الصور</button></div></div><progress id="progress" max="1" value="0" aria-label="تقدم البحث"></progress><p id="job-path" class="hint path" dir="ltr"></p><p class="hint">اعتماد الصورة بينسخها لمجلد ready. باقي المقترحات في review، وتقرير المصادر في report.csv.</p></div>
+    <div class="filters"><label class="search-field"><span class="sr-only">ابحث في المنتجات</span><input id="filter-text" placeholder="ابحث باسم المنتج…"></label><label><span class="sr-only">تصفية حسب الحالة</span><select id="filter-status"><option value="all">كل المنتجات</option><option value="review">محتاج مراجعة</option><option value="approved">جاهز للرفع</option><option value="pending">منتظر البحث</option><option value="error">تعذر البحث</option><option value="skipped">متخطّي</option></select></label></div>
+    <div id="cards" class="cards"></div><div class="pagination"><button id="previous" class="secondary" type="button">السابق</button><span id="page-label"></span><button id="next" class="secondary" type="button">التالي</button></div>
+  </div>
+  <footer>تطابق الوصف تقييم للكلمات، مش ضمان تطابق الصورة. راجع الماركة والموديل أو النكهة والحجم، وتأكد إن مصدر الصورة يسمح باستخدامها في موقعك.</footer>
+</section>
+</main>
+<dialog id="review-dialog"><div class="dialog-heading"><div><div class="step-label">مراجعة المنتج</div><h2 id="dialog-title"></h2></div><button id="close-dialog" class="secondary" type="button">إغلاق</button></div><form id="research-form" class="research-form"><div class="field"><label for="query">وصف البحث (الماركة + النوع + النكهة + الحجم)</label><input id="query"></div><button class="secondary" id="research" type="submit">ابحث تاني</button></form><p id="dialog-error" class="error" role="alert" hidden></p><p class="hint">اختيار بديل بينزّل الصورة على جهازك. بعدها اضغط «اعتماد» لو العبوة مناسبة.</p><div id="candidates" class="candidates"></div><div class="dialog-footer"><button class="primary" id="dialog-approve" type="button">اعتماد الصورة المختارة</button><button class="secondary" id="dialog-skip" type="button">تخطّي المنتج</button></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script src="/app.js" defer></script>
+</body></html>
